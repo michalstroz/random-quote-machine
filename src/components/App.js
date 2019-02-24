@@ -8,8 +8,17 @@ class App extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      quotes: []
+      quotes: [],
+      quote: {}
     }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    this.setState({
+      quote: this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]
+    });
+    event.preventDefault();
   }
 
   componentDidMount() {
@@ -21,7 +30,8 @@ class App extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            quotes: result
+            quotes: result,
+            quote: result[Math.floor(Math.random() * result.length)]
           });
         },
         (error) => {
@@ -34,15 +44,16 @@ class App extends Component {
   }
 
   render() {
-    const {error, isLoaded, quotes} = this.state;
+    const {error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>
     } else {
+      console.log(this.state.quote);
       return (
         <div className="App">
-          <QuoteBox quotes={quotes}/>
+          <QuoteBox quote={this.state.quote} handleClick={this.handleClick}/>
         </div>
       );
     }
