@@ -1,16 +1,15 @@
 import React from 'react';
 
-class QuoteBox extends React.Component {
-  render() {
+const QuoteBox = (props) => {
+    
     return (
       <div id="quote-box">
-        <p id="text"></p>
-        <p id="author"></p>
-        <button id="new-quote">SPIN</button>
+        <p id="text">{props.quote.content.replace(/<\/*p>/g, "")}</p>
+        <p id="author">{props.quote.title}</p>
+        <button id="new-quote" onClick={props.handleClick}>SPIN</button>
         <button id="tweet-quote"></button>
       </div>
     );
-  }
 }
 
 export default QuoteBox;
