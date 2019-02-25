@@ -50,7 +50,6 @@ class App extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>
     } else {
-      console.log(this.state.quote);
       return (
         <div className="App">
           <QuoteBox quote={this.state.quote} handleClick={this.handleClick}/>
