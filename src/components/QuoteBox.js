@@ -1,16 +1,16 @@
 import React from 'react';
-import {htmlDecode} from './functions.js';
+import {htmlDecode, createTwitterString} from './functions.js';
 
 const QuoteBox = (props) => {
-    const quoteContent = props.quote.content.replace(/<\/*p>/g, "");
-    const quoteAuthor = props.quote.title;
-    
+    const quoteContent = htmlDecode(props.quote.content.replace(/<\/*p>/g, ""));
+    const quoteAuthor = htmlDecode(props.quote.title);
+
     return (
       <div id="quote-box">
-        <p id="text">{htmlDecode(quoteContent)}</p>
-        <p id="author">{htmlDecode(quoteAuthor)}</p>
+        <p id="text">{quoteContent}</p>
+        <p id="author">{quoteAuthor}</p>
         <button id="new-quote" onClick={props.handleClick}>SPIN</button>
-        <button id="tweet-quote"></button>
+        <a className="button" id="tweet-quote" href={createTwitterString(quoteContent, quoteAuthor)} target="_blank">tweet</a>
       </div>
     );
 }
