@@ -3,4 +3,8 @@ const htmlDecode = (input) => {
   return doc.documentElement.textContent;
 }
 
-export {htmlDecode}
+const createTwitterString = (content, author) => {
+  return `https://twitter.com/intent/tweet?hashtags=quotes&text=${content}%0D%0A${author}`;
+}
+
+export {htmlDecode, createTwitterString}
