@@ -10,7 +10,7 @@ const QuoteBox = (props) => {
         <p id="text">{quoteContent}</p>
         <p id="author">{quoteAuthor}</p>
         <button id="new-quote" onClick={props.handleClick}>SPIN</button>
-        <a className="button" id="tweet-quote" href={createTwitterString(quoteContent, quoteAuthor)} target="_blank">tweet</a>
+        <a className="button" id="tweet-quote" href={createTwitterString(quoteContent, quoteAuthor)} target="_blank" rel="noopener noreferrer">tweet</a>
       </div>
     );
 }
