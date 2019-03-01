@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/App.scss';
+import '../styles/QuoteBox.scss';
 import QuoteBox from './QuoteBox';
 
 class App extends Component {
