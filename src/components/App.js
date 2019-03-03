@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
-import '../styles/App.scss';
-import '../styles/QuoteBox.scss';
+import React, {Component} from 'react';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fab} from '@fortawesome/free-brands-svg-icons';
 import QuoteBox from './QuoteBox';
+import '../styles/App.scss';
+
+library.add(fab);
 
 class App extends Component {
   constructor(props) {
@@ -23,25 +26,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://big-okra.glitch.me/https://quotesondesign.com/wp-json/posts?filter%5Borderby%5D=rand&filter%5Bposts_per_page%5D=41&callback=", {
-       cache: "no-cache"
-    })
-      .then(res => res.json())
-    	.then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            quotes: result,
-            quote: result[Math.floor(Math.random() * result.length)]
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+    fetch("https://big-okra.glitch.me/https://quotesondesign.com/wp-json/posts?filter%5Borderby%5D=rand&filter%5Bposts_per_page%5D=41&callback=", {cache: "no-cache"}).then(res => res.json()).then((result) => {
+      this.setState({
+        isLoaded: true,
+        quotes: result,
+        quote: result[Math.floor(Math.random() * result.length)]
+      });
+    }, (error) => {
+      this.setState({isLoaded: true, error});
+    });
   }
 
   render() {
@@ -51,11 +44,9 @@ class App extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>
     } else {
-      return (
-        <div className="App">
-          <QuoteBox quote={this.state.quote} handleClick={this.handleClick}/>
-        </div>
-      );
+      return (<div className="App">
+        <QuoteBox quote={this.state.quote} handleClick={this.handleClick}/>
+      </div>);
     }
   }
 }
