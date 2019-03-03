@@ -2,10 +2,47 @@
 @import 'partials/variables';
 
 #quote-box {
-  width: 50%;
-  margin: auto;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   top: 50%;
+  padding: 4em 2em;
   @include translate(0, -50%);
-  
+  @include box-shadow(1px, 1px, 4px, 0);
+  @include border-radius(5px, 5px, 5px, 5px);
+  @include flex-container(column, nowrap, center, center, center);
+
+  .quote-wrapper {
+    height: 20vh;
+    margin-bottom: 2em;
+    overflow: auto;
+    width: 100%;
+
+    #text {
+      font-size: 2em;
+      margin-top: 0;
+      margin-bottom: 1.5em;
+    }
+
+    #author {
+      width: 100%;
+      text-align: right;
+      font-style: italic;
+      font-size: 1.2em;
+      margin-top: 0;
+
+      span {
+        margin-right: 2px;
+      }
+    }
+  }
+
+  #new-quote {
+    padding: 0.5em 3em;
+    @include border-radius(4px, 4px, 4px, 4px);
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
 }
