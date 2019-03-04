@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
+import {faQuoteRight, faQuoteLeft} from '@fortawesome/free-solid-svg-icons';
 import QuoteBox from './QuoteBox';
 import '../styles/App.scss';
 
-library.add(fab);
+library.add(fab, faQuoteRight, faQuoteLeft);
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends Component {
       error: null,
       isLoaded: false,
       quotes: [],
-      quote: {}
+      quote: {},
     }
     this.handleClick = this.handleClick.bind(this);
   }
