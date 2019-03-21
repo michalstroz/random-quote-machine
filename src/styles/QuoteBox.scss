@@ -55,7 +55,7 @@
 
     #new-quote {
       font-size: 2em;
-      font-weight: 500;
+      font-weight: bold;
       padding: 0.5em 3em;
       @include border-radius(4px, 4px, 4px, 4px);
       outline: none;
@@ -66,6 +66,7 @@
         sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      letter-spacing: 1px;
     }
 
     .button {

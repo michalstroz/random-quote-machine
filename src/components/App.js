@@ -54,9 +54,11 @@ class App extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>
     } else {
-      return (<div className="App" style={{background: this.state.backgroundGradient}}>
-        <QuoteBox quote={this.state.quote} colors={this.state.colors} handleClick={this.handleClick}/>
-      </div>);
+      return (
+          <div className="App" style={{background: this.state.backgroundGradient}}>
+            <QuoteBox quote={this.state.quote} colors={this.state.colors} handleClick={this.handleClick}/>
+          </div>
+      );
     }
   }
 }
