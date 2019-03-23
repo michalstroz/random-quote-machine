@@ -4,12 +4,6 @@
   -ms-transform: translate($x, $y);
   transform: translate($x, $y);
 }
-// @mixin box-shadow($x, $y, $blur, $spread, $color) {
-//   -webkit-box-shadow: $x $y $blur $spread $color;
-//   -moz-box-shadow: $x $y $blur $spread $color;
-//   -ms-box-shadow: $x $y $blur $spread $color;
-//   box-shadow: $x $y $blur $spread $color;
-// }
 @mixin border-radius($left-top, $right-top, $right-bottom, $left-bottom) {
   -webkit-border-radius: $left-top $right-top $right-bottom $left-bottom;
   -moz-border-radius: $left-top $right-top $right-bottom $left-bottom;
