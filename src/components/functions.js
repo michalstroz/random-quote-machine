@@ -37,6 +37,7 @@ const changeHue = (hue, val) => {
    return hue;
 }
 
+
 export {
   htmlDecode,
   createTwitterString,
