@@ -16,8 +16,12 @@ class App extends Component {
       isLoaded: false,
       quotes: [],
       quote: {},
-      colors: [],
-      backgroundGradient: ''
+      colors: {
+        currentCollor: '',
+        previousColor: '',
+        boxShadowCollor: ''
+      },
+      backgroundGradient: '',
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -26,8 +30,12 @@ class App extends Component {
     const colors = randomColors();
     this.setState({
       quote: this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)],
-      colors: colors,
-      backgroundGradient: `linear-gradient(45deg, ${colors[0]}, ${colors[1]})`
+      colors: {
+        currentCollor: colors[1],
+        previousColor: this.state.colors.currentCollor,
+        boxShadowCollor: colors[2]
+      },
+      backgroundGradient: `linear-gradient(45deg, ${colors[0]}, ${colors[1]})`,
     });
     event.preventDefault();
   }
@@ -39,7 +47,11 @@ class App extends Component {
         isLoaded: true,
         quotes: result,
         quote: result[Math.floor(Math.random() * result.length)],
-        colors: colors,
+        colors: {
+          currentCollor: colors[1],
+          previousColor: '#ffffff',
+          boxShadowCollor: colors[2]
+        },
         backgroundGradient: `linear-gradient(45deg, ${colors[0]}, ${colors[1]})`
       });
     }, (error) => {
