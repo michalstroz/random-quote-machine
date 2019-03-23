@@ -24,7 +24,6 @@
       margin-top: 0;
       margin-bottom: 1.5em;
       width: 98%;
-
     }
 
     #author {
@@ -37,15 +36,16 @@
   }
 
   .quote-wrapper::-webkit-scrollbar {
-  	width: 5px;
+    width: 5px;
   }
+
   .quote-wrapper::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
   }
+
   .quote-wrapper::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
   }
-
 
   .buttons {
     @include flex-container(row-reverse, nowrap, space-between, center, center);
@@ -61,17 +61,41 @@
       outline: none;
       border: none;
       cursor: pointer;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       letter-spacing: 1px;
+      opacity: 1;
+      @include transition(opacity, 500ms, ease-out);
     }
 
     .button {
       font-size: 4.9em;
+      opacity: 1;
+      @include transition(opacity, 500ms, ease-out);
+    }
+
+    #new-quote:hover,
+    .button:hover {
+      opacity: 0.85;
     }
   }
+}
 
+@media (max-width: 1300px) {
+  #quote-box {
+    width: 60%;
+  }
+}
+
+@media (max-width: 800px) {
+  #quote-box{
+    width: 80%;
+    padding: 2em;
+
+    .quote-wrapper {
+      height: 50vh;
+      @include flex-container(column, nowrap, center, center, center);
+    }
+  }
 }
